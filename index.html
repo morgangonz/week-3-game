@@ -8,43 +8,7 @@
 	</head>
 		<body>
 
-			<script type = "text/javascript">
-
-			// alphabet for computer choices
-
-	var computerChoices = ['a','b','c','d','e','f','g','h','i','j','k',
-						'l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-			//scores
-			
-			var wins = 0;
-			var losses = 0;
-			var guesses = 9;
-
-		//when user enters key, comp records as userguess
-		
-		document.onkeyup = function(event) {
-			var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-		
-		//to make the computer guess random
-			
-			var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.lenght)];
-
-			// what happens on users keypress
-
-			/* I know that I need to make a for loop so that I do not need to manually enter all 26 letters of the alphabet, the questions is how... ? */
-
-			for (var userGuess = 0; i < computerGuess.length; i++) {
-			
-					if (userGuess === computerGuess);
-					wins++
-					else if (userGuess < computerGuess || (userGuess > computerGuess);
-					losses++
-				}
-
-		}			 
-		</script>
-			
-		<div id ="html">
+				<div id ="html">
 			Guess what letter I am thinking of...
 			<br><br>
 			Wins:
@@ -56,5 +20,50 @@
 			Your guesses so far:
 			<br><br>
 		</div>
+
+			<script type = "text/javascript">
+
+
+			// alphabet for computer choices
+
+	var letters = ['A','B','C','D','E','F','G','H','I','J','K',
+						'L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+			//scores
+			
+		
+		
+		
+		//to make the computer guess random
+			
+			var computerGuess = Math.floor(Math.random() * letters.length);
+
+			// what happens on users keypress
+
+			//var randomLetter = letters[randomIndex]
+
+			var guesses = 9;
+
+			document.onkeyup = function(event) {
+			
+			var userGuess = String.fromCharCode(event.keyCode);
+
+			
+					if (userGuess === computerGuess){
+						alert("You win!");
+					//wins++
+					} else {
+					 //incorrect guess = lose
+					 guesses = guesses - 1;
+					 console.log(guesses);
+
+				}
+
+				if (guesses === 0) {
+					alert("You lose");
+					guesses = 9;
+				}
+		}
+					 
+		</script>
 		</body>
 </html>
